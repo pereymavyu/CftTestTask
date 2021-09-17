@@ -1,4 +1,4 @@
-package ru.pereyma.mergesorter.comparators;
+package ru.pereyma.mergesorter.parser;
 
 import java.util.Comparator;
 

@@ -1,7 +1,7 @@
 package ru.pereyma.mergesorter.main;
 
-import ru.pereyma.mergesorter.CommandLineArgumentsParser;
-import ru.pereyma.mergesorter.MergeSorter;
+import ru.pereyma.mergesorter.parser.CommandLineArgumentsParser;
+import ru.pereyma.mergesorter.sorter.MergeSorter;
 
 import java.io.*;
 

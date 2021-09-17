@@ -1,6 +1,6 @@
-package ru.pereyma.mergesorter;
+package ru.pereyma.mergesorter.sorter;
 
-import ru.pereyma.mergesorter.DataType;
+import ru.pereyma.mergesorter.parser.DataType;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class MergeSorter {
             input.add(new BufferedReader(new FileReader(e)));
         }
 
-        ArrayList<Comparable> itemsToCompare = new ArrayList<>();
+        ArrayList<Object> itemsToCompare = new ArrayList<>();
 
         String currentLine;
 
@@ -37,7 +37,7 @@ public class MergeSorter {
                         itemsToCompare.add(Integer.parseInt(currentLine.trim()));
                         break;
                     } catch (NumberFormatException ex) {
-                        System.out.println("String \"" + currentLine + "\" was not processed");
+                        System.out.println("String \"" + currentLine + "\" is not a single number and was not processed");
                     }
                 }
 
@@ -49,7 +49,7 @@ public class MergeSorter {
             }
         }
 
-        Comparable selectedItem;
+        Object selectedItem;
         int selectedItemIndex;
 
         BufferedWriter bw = new BufferedWriter(new FileWriter(outputFileName));

@@ -1,7 +1,4 @@
-package ru.pereyma.mergesorter;
-
-import ru.pereyma.mergesorter.comparators.AscendingComparator;
-import ru.pereyma.mergesorter.comparators.DescendingComparator;
+package ru.pereyma.mergesorter.parser;
 
 import java.util.Comparator;
 
@@ -12,27 +9,37 @@ public class CommandLineArgumentsParser<T extends Comparable<T>> {
     private final String outputFile;
 
     public CommandLineArgumentsParser(String[] args) {
-        int modifiersAmount = 0;
+        int dataTypeModifiersAmount = 0;
+        int sortingOrderModifiersAmount = 0;
 
         for (String e : args) {
             switch (e) {
                 case "-s" -> {
                     dataType = DataType.STRING;
-                    ++modifiersAmount;
+                    ++dataTypeModifiersAmount;
                 }
-                case "-i", "-a" -> ++modifiersAmount;
+                case "-i" -> ++dataTypeModifiersAmount;
+                case "-a" -> ++sortingOrderModifiersAmount;
                 case "-d" -> {
                     comparator = new DescendingComparator<>();
-                    ++modifiersAmount;
+                    ++sortingOrderModifiersAmount;
                 }
             }
         }
 
-        outputFile = args[modifiersAmount];
+        if(dataTypeModifiersAmount < 1) {
+            System.out.println("Укажите модификатор данных: \"-s\" - строки, \"-i\" - целые числа");
 
-        int inputFilesAmount = args.length - modifiersAmount - 1;
+            System.exit(0);
+        }
+
+        int totalModifiersAmount = dataTypeModifiersAmount + sortingOrderModifiersAmount;
+
+        outputFile = args[totalModifiersAmount];
+
+        int inputFilesAmount = args.length - totalModifiersAmount - 1;
         inputFiles = new String[inputFilesAmount];
-        System.arraycopy(args, modifiersAmount + 1, inputFiles, 0, inputFilesAmount);
+        System.arraycopy(args, totalModifiersAmount + 1, inputFiles, 0, inputFilesAmount);
     }
 
     public DataType getDataType() {
