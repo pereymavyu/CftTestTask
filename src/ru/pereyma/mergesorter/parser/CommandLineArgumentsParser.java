@@ -27,7 +27,7 @@ public class CommandLineArgumentsParser<T extends Comparable<T>> {
             }
         }
 
-        if(dataTypeModifiersAmount < 1) {
+        if (dataTypeModifiersAmount < 1) {
             System.out.println("Укажите модификатор данных: \"-s\" - строки, \"-i\" - целые числа");
 
             System.exit(0);
@@ -58,5 +58,3 @@ public class CommandLineArgumentsParser<T extends Comparable<T>> {
         return outputFile;
     }
 }
-
-
