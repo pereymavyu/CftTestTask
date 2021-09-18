@@ -1,7 +1,7 @@
-package ru.pereyma.mergesorter.main;
+package ru.pereyma.merge_sort.main;
 
-import ru.pereyma.mergesorter.parser.CommandLineArgumentsParser;
-import ru.pereyma.mergesorter.sorter.MergeSorter;
+import ru.pereyma.merge_sort.parser.CommandLineArgumentsParser;
+import ru.pereyma.merge_sort.sorter.MergeSorter;
 
 public class Main {
     public static <T extends Comparable<T>> void main(String[] args) {

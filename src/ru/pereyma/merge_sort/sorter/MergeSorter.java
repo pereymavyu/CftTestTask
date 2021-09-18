@@ -1,6 +1,6 @@
-package ru.pereyma.mergesorter.sorter;
+package ru.pereyma.merge_sort.sorter;
 
-import ru.pereyma.mergesorter.parser.DataType;
+import ru.pereyma.merge_sort.parser.DataType;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class MergeSorter {
                 for (int i = 0; i < readers.size(); ++i) {
                     while ((currentLine = readers.get(i).readLine()) != null) {
                         try {
-                            itemsToCompare.add(Integer.parseInt(currentLine.trim()));
+                            itemsToCompare.add(Integer.parseInt(currentLine));
                             break;
                         } catch (NumberFormatException ex) {
                             System.out.println("Строка \"" + currentLine + "\" не содержит корректное числовое значение и не включена в отсортированный файл");
@@ -97,7 +97,7 @@ public class MergeSorter {
                         Object currentNumber;
 
                         try {
-                            currentNumber = Integer.parseInt(currentLine.trim());
+                            currentNumber = Integer.parseInt(currentLine);
                         } catch (NumberFormatException ex) {
                             System.out.println("Строка \"" + currentLine + "\" не содержит корректное числовое значение и не включена в отсортированный файл");
                             continue;
@@ -118,6 +118,8 @@ public class MergeSorter {
                         readers.remove(selectedItemIndex);
                     }
                 }
+
+                writer.flush();
             }
 
             System.out.println("Сортировка завершена");

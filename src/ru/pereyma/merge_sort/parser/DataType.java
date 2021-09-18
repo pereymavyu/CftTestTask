@@ -1,4 +1,4 @@
-package ru.pereyma.mergesorter.parser;
+package ru.pereyma.merge_sort.parser;
 
 public enum DataType {
     STRING,

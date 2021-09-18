@@ -1,4 +1,4 @@
-package ru.pereyma.mergesorter.parser;
+package ru.pereyma.merge_sort.parser;
 
 import java.util.Comparator;
 
@@ -29,6 +29,12 @@ public class CommandLineArgumentsParser<T extends Comparable<T>> {
 
         if (dataTypeModifiersAmount < 1) {
             System.out.println("Укажите модификатор данных: \"-s\" - строки, \"-i\" - целые числа");
+
+            System.exit(0);
+        }
+
+        if (args.length < 3) {
+            System.out.println("Укажите имена входного и выходных файлов через пробел в формате \"FileName.txt\"");
 
             System.exit(0);
         }
